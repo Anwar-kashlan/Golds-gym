@@ -2,6 +2,7 @@ import { Box, Pagination, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ExercisesCard from "./ExercisesCard";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
+import Loader from "./Loader";
 
 const Exerceses = ({ exercises, setExercise, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,9 +43,13 @@ const Exerceses = ({ exercises, setExercise, bodyPart }) => {
         justifyContent="center"
         sx={{ gap: { lg: "110px", xs: "50px" } }}
       >
-        {currentExercises.map((exercise, index) => (
-          <ExercisesCard key={index} exercise={exercise} />
-        ))}
+        {exercises.length ? (
+          currentExercises.map((exercise, index) => (
+            <ExercisesCard key={index} exercise={exercise} />
+          ))
+        ) : (
+          <Loader />
+        )}
       </Stack>
       <Stack mt="100px" alignItems="center">
         {exercises.length > 9 && (
