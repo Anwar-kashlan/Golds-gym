@@ -1,0 +1,7 @@
+ @mui/icons-material
+ @mui/material
+ @emotion/styled
+ @emotion/react
+ react-router-dom
+ react-loader-spinner
+ react-horizontal-scrolling-menu
